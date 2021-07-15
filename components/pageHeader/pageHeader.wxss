@@ -1,0 +1,25 @@
+.header{
+  width: 100%;
+  height: 160rpx;
+  background-color: var(--themeColor);
+  display: inline-flex;
+  flex-direction: row; 
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.backTo{
+  font-size: 36rpx;
+  color: white;
+  padding-top: 70rpx;
+  padding-left: 5%;
+}
+
+.pageTitle{
+  font-size: var(--pageTitleFontSize);
+  color: white;
+  padding-top: 70rpx;
+  padding-left: 32%;
+  font-weight: 560;
+}

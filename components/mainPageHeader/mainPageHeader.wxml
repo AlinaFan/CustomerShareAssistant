@@ -1,0 +1,3 @@
+<view class="header"> 
+  <image class="headerImg" src="/images/mainPageHeader.png" mode="widthFix"/>
+</view>

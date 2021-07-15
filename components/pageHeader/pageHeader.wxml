@@ -1,0 +1,5 @@
+<!--components/pageHeader.wxml-->
+<view class="header" isBack="{{true}}"> 
+  <text class="backTo" decode='true' bindtap="BackPage">&lt;</text>
+  <text class="pageTitle">{{myTitle}}</text>
+</view>

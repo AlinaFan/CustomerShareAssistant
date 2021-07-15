@@ -1,0 +1,8 @@
+<view class="inputView" style="margin-top:{{marginTop}}">
+  <image class="loginImg" src="{{imgPath}}" mode="widthFix" />
+  <input class="inputText" data-id="{{name}}" placeholder="{{waterLabel}}" password="{{isPassword}}"
+    maxlength="{{maxlength}}" value="{{inputValue}}" type="{{textType}}" focus="{{isFocus}}" bindinput="getInputValue" bindblur="checkIsNull" bindfocus="getFocus"/>
+    <text class="{{isNull?'warnTextShow':'warnTextHide'}}">信息不能为空</text>
+  <image class="{{isClearShow?'clearImgShow':'clearImgHide'}}" src="/images/other/clear.png" bindtap='clearTap'
+    mode='widthFix' />
+</view>

@@ -1,0 +1,10 @@
+/* 输入框 */
+.inputView { display: flex;  flex-direction: row;  align-items: center; border-radius: 10rpx;  border-style: solid;  border-width: 2rpx;  border-color: lightgrey;  background-color: white;  height: var(--inputHeight);  width: 100%; z-index: 1;}
+.loginImg { padding:0 30rpx; width: 40rpx;}
+.inputText { width: 100%;  padding:0 30rpx; text-align: left; font-size: var(--inputFontSize);}
+
+.clearImgShow {  width: 35rpx;  vertical-align: center; margin-right: 20rpx;}
+.clearImgHide {  display: none;}
+
+.warnTextShow {  width: 70%;  vertical-align: center; margin-right: 20rpx; color: red; font-size: var (--smallFontSize);}
+.warnTextHide {  display: none;}

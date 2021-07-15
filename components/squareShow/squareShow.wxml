@@ -1,0 +1,7 @@
+<!--订单状态 方形-->
+<view wx:if="{{number>9999}}" class="more">+</view>
+<view class="squareInfo" style="border:solid 3rpx {{infoColor}}">
+  <text wx:if="{{number<10000}}" class="number" style="color:{{infoColor}}">{{number}}</text>
+  <text wx:else class="number" style="color:{{infoColor}}">9999</text>
+  <text class="infoType">{{infoType}}</text>
+</view>

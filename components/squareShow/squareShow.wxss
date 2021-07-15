@@ -1,0 +1,5 @@
+/**订单状态 方形*/
+.more{color:var(--unAcceptColor); margin-left: 15vw; z-index: 2; position:absolute;}
+.squareInfo{margin: 3rpx; width: 18vw; height:18vw; border-radius: 16rpx; display: flex; flex-direction: column; text-align: center; justify-content: center;  z-index: 1;}
+.number{font-size: var(--bigFontSize); font-weight: bold; }
+.infoType{font-size: var(--nomalFontSize); }

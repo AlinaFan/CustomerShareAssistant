@@ -1,0 +1,4 @@
+<view class="detailInfo">
+  <text class="beforeText">{{beforeText}}：</text>
+  <text class="mainText" decode="{{true}}">{{mainText}}&emsp;</text>
+</view>
