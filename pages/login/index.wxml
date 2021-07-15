@@ -1,0 +1,48 @@
+<!--顶部-->
+<view class="header">
+  <image class="headerImg" src="/images/loginHeader.png" mode="widthFix" />
+  <text class="title">客源互推助手</text>
+</view>
+
+<!--输入框-->
+<view class="body">
+  <view class="inputView">
+    <image class="loginImg" src="/images/login/UserName.png" />
+    <input class="inputText" placeholder="请输入账号" bindinput="userNameInput" />
+  </view>
+  <view class="inputView">
+    <image class="loginImg" src="/images/login/Password.png" />
+    <input class="inputText" placeholder="请输入密码" password="true" bindinput="userPwdInput" />
+  </view>
+  <view class="linkLabel">
+    <text class="findPwd">忘记密码</text>
+    <text class="register" bindtap="jumpBtn">注册用户</text>
+  </view>
+</view>
+
+<!--登陆按钮 -->
+<button class="loginBtn" plain="{{plain}}" disabled="{{disabled}}" bindtap="loginByName" >登 陆</button>
+
+<!--微信登陆-->
+<view class="weChat">
+  <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="loginByWechat" bindtap="showDialogBtn"></button>
+  <image src="/images/login/微信.png" />
+  <text>微信登陆</text>
+  <!--微信绑定弹窗-->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}" />
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">
+      <text class="title">微信绑定</text>
+      <text class="close">×</text>
+      <button class="btn-cancel" bindtap="onCancel" data-status="cancel">关闭</button>
+    </view>
+    <view class="modal-content">
+      <inputView name="userName" waterLabel="请输入要绑定的账号" imgPath="/images/login/UserName.png" maxlength="20" bind:inputChange="inputChange" bind:clearTap='clearTap'/>
+      <inputView name="userPwd" waterLabel="请输入要绑定的账号密码" imgPath="/images/login/password.png" maxlength="20" isPassword="true" bind:inputChange="inputChange" bind:clearTap='clearTap'/>
+      <view class="bindNewAccount">
+        <view class="bindLabel" bindtap="jumpBtn">绑定新账号</view>
+      </view>
+    </view>
+    <view class="btn-confirm" bindtap="bindingWithWechat" data-status="confirm">绑 定</view>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+<pageHeader myTitle="跟进详情" />
+
+<!--跟进详情-->
+<view class="container">
+  <view class="custName">00000158 张三(铺位)</view>
+  <view class="splitters" />
+  <!--表格-->
+  <view class="table">
+    <view class="tableHeader">
+      <block class="th" wx:for="{{tableHeader}}" wx:key="prop">
+        <view style="flex:1.5">{{item.FUserId}}</view>
+        <view style="flex:1.8">{{item.FPartName}}</view>
+        <view style="flex:1">{{item.FUserName}}</view>
+        <view style="flex:1">{{item.CustomerState}}</view>
+        <view style="flex:1.6">{{item.AcceptTime}}</view>
+      </block>
+    </view>
+    <block wx:for="{{GetFollowDetailList}}" wx:key="FUserId">
+      <view class="tableData">
+        <view style="flex:1.5">{{item.FUserId}}</view>
+        <view style="flex:1.8">{{item.FPartName}}</view>
+        <view style="flex:1">{{item.FUserName}}</view>
+        <view style="flex:1">
+          <view wx:if="{{item.CustomerState==1}}">待接单</view>
+          <view wx:elif="{{item.CustomerState==2}}">跟进中</view>
+          <view wx:elif="{{item.CustomerState==3}}">成交</view>
+          <view wx:else="{{item.CustomerState==4}}">终止</view>
+        </view>
+        <view style="flex:1.6">{{item.AcceptTime}}</view>
+      </view>
+    </block>
+  </view>
+</view>

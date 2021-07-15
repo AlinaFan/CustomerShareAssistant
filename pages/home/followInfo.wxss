@@ -1,0 +1,7 @@
+.container{width: 100vw; margin-top: 200rpx; display: flex; align-items: flex-start;}
+.custName {font-size: var(--pageTitleFontSize); font-weight: 550;}
+.splitters { width: 95vw;  height: 5rpx;  background-color:lightgray; margin-top: 10rpx;}
+
+.table {width: 100%; font-size: var(--tableFontSize); margin-top: 20rpx;}  
+.tableHeader{padding-left: 13rpx; display: flex; justify-content: left; align-items: center; background-color:var(--themeColor); color: white; height: 60rpx;}
+.tableData{padding-left: 13rpx; display: flex; justify-content: left; align-items: center; height: 100rpx; background-color: #eee; border-bottom: 1rpx solid lightgray;}

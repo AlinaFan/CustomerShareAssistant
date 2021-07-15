@@ -1,0 +1,41 @@
+page{
+  width: 100%;
+  height: 100%;
+}
+/* 顶部 */
+.header {  width: 100%; height: 40%; display: flex;  flex-direction: column;  align-items: center;}
+.headerImg { width: 100%; margin-bottom: 10rpx;}
+.title {  font-size: var(--titleFontSize);  font-weight: 700;  color: var(--themeColor);}
+
+/* 内容部分 */
+.body { height: 35%; margin-left: 70rpx; margin-right: 70rpx; display: flex;  flex-direction: column;  box-sizing: border-box;}
+
+/* 输入框 */
+.inputView {  display: flex;
+  flex-direction: row;  align-items: center;  margin-top: 60rpx;  border-radius: 10rpx;  border-style: solid;  border-width: 2rpx;  border-color: lightgrey;  background-color: white;  height: var(--inputHeight);  width: 100%;}
+.loginImg {  padding-left: 60rpx;  height: 50rpx;  width: 66rpx;}
+.inputText {  width: 100%;  text-align: left;  padding-left: 60rpx;  font-size: var(--inputLoginFontSize);}
+
+/* 链接文字 */
+.linkLabel {  font-size: var(--linkFontSize);  margin-top: 50rpx;  display: inline;  flex-direction: row;  font-weight: 580;}
+.findPwd {  color: gray;  float: right;  text-decoration: underline;}
+.register {  color: var(--themeColor);  margin-right: 80rpx;  float: right;  text-decoration: underline;}
+
+/* 登陆框 */
+.loginBtn { height: 15%;margin-bottom: 80rpx; border-radius: 0;  height: 110rpx;  justify-content: center;  background-color: var(--themeColor);  color: white;  font-size: var(--loginBtnFontSize);  font-weight: 550;}
+
+/* 微信登陆 */
+.weChat {height: 10%; display: flex;  flex-direction: column;  align-items: center; }
+.weChat button{opacity: 0; border: none; width: 200rpx; height: 120rpx; z-index: 1; position: absolute; }
+.weChat image {  width: 60rpx;  height: 60rpx;  margin-bottom: 10rpx;z-index: 0;}
+.weChat text{  font-size: var(--linkFontSize);  color: gray;z-index: 0;}
+
+/* 弹窗 */
+.modal-mask { width: 100%;  height: 100%;  position: fixed;  top: 0;  left: 0;  background:#eee; opacity: 0.5; overflow: hidden; z-index: 9000;color: #fff;  }
+.modal-dialog { width: 90%; height: auto; overflow: hidden; position: fixed;  top: 30% ; left:5%; z-index: 9900;background: #fff;border-radius: 10rpx; }
+.modal-title { height: 80rpx; background-color: var(--themeColorDark); z-index: 9900; display: flex;  flex-direction: row; justify-content: space-between;  padding: 0 30rpx; align-items: center;font-size: var(--modalTitleFontSize);color:white;}
+.btn-cancel{background-color:greenyellow; width: 120rpx; height: 80rpx;z-index: 9990;position: absolute; left: 500rpx;}
+.modal-content {width: 90%; margin-left:5%; display: flex; flex-direction: column;}
+.bindNewAccount{ margin-top: 30rpx;}
+.bindLabel{font-size: var(--linkFontSize); color: var(--themeColor);text-decoration: underline;float: right;}
+.btn-confirm {width: 90%; height: 70rpx;  padding-top: 15rpx; margin-left:5%;  margin-top: 40rpx; margin-bottom: 60rpx; border-radius: 5rpx; text-align: center; background-color: var(--themeColorDark);  color: white;  font-size: var(--inputFontSize);  font-weight: 550;}

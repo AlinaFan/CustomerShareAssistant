@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "pageHeader":"/components/pageHeader/pageHeader",
+    "inputView":"/components/inputView/inputView",
+    "bigButton":"/components/bigButton/bigButton"
+  }
+}

@@ -1,0 +1,45 @@
+<!--pages/login/register.wxml-->
+<pageHeader myTitle="用户注册" />
+
+<view class="container">
+  <!--标题-->
+  <view class="title">
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label class="roleType" wx:for="{{comTypes}}" wx:key="key">
+        <radio value="{{item.comType}}" checked="{{item.checked}}">{{item.value}}</radio>
+      </label>
+    </radio-group>
+    <!-- <text class="tips">*为必填项</text> -->
+  </view>
+  <view class="splitters"></view>
+  <!--输入框-->
+  <view class="content">
+    <inputView name="userName" waterLabel="请输入登陆账号" imgPath="/images/login/UserName.png" maxlength="20"
+      marginTop="{{marginTop}}" bind:inputChange="inputChange" bind:clearTap='clearTap' bind:checkIsNull='checkIsNull' bind:getFocus='getFocus'/>
+    <inputView name="firstUserPwd" waterLabel="请输入登陆密码" imgPath="/images/login/password.png" maxlength="20"
+      isPassword="true" marginTop="{{marginTop}}" bind:inputChange="inputChange" bind:clearTap='clearTap' bind:checkIsNull='checkIsNull' bind:getFocus='getFocus'/>
+    <inputView name="secondUserPwd" waterLabel="请再次输入登陆密码" imgPath="/images/login/Password.png" maxlength="20"
+      isPassword="true" marginTop="{{marginTop}}" bind:inputChange="inputChange" bind:clearTap='clearTap' bind:checkIsNull='checkIsNull' bind:getFocus='getFocus'/>
+    <view class="isCompany" wx:if="{{isCompany}}">
+      <inputView name="companyFullName" waterLabel="请输入公司全称" imgPath="/images/login/Company.png"
+        marginTop="{{marginTop}}" bind:inputChange="inputChange" bind:clearTap='clearTap' bind:checkIsNull='checkIsNull' bind:getFocus='getFocus'/>
+      <inputView name="companyName" waterLabel="请输入公司简称" imgPath="/images/login/Company.png" marginTop="{{marginTop}}"
+        bind:inputChange="inputChange" bind:clearTap='clearTap' bind:checkIsNull='checkIsNull'  bind:getFocus='getFocus'/>
+      <inputView name="socialCreditCode" waterLabel="请输入社会信用代码" imgPath="/images/login/SocialCreditCode.png"
+        marginTop="{{marginTop}}" bind:inputChange="inputChange" bind:clearTap='clearTap' bind:checkIsNull='checkIsNull'  bind:getFocus='getFocus'/>
+      <inputView name="legalPerson" waterLabel="请输入法人姓名" imgPath="/images/login/LegalPerson.png" maxlength="10"
+        marginTop="{{marginTop}}" bind:inputChange="inputChange" bind:clearTap='clearTap' bind:checkIsNull='checkIsNull' bind:getFocus='getFocus'/>
+    </view>
+    <inputView name="contactName" waterLabel="请输入您的姓名" imgPath="/images/login/LegalPerson.png" maxlength="10"
+      marginTop="{{marginTop}}" bind:inputChange="inputChange" bind:clearTap='clearTap' bind:checkIsNull='checkIsNull' bind:getFocus='getFocus'/>
+    <inputView name="contactPhoneNo" waterLabel="请输入您的电话" imgPath="/images/login/phone.png" maxlength="11"
+      textType="number" marginTop="{{marginTop}}" bind:inputChange="inputChange" bind:clearTap='clearTap' bind:checkIsNull='checkIsNull' bind:getFocus='getFocus'/>
+    <inputView name="contactIDCardNo" waterLabel="请输入您的身份证号" imgPath="/images/login/IDCard.png" maxlength="18"
+      textType="idcard" marginTop="{{marginTop}}" bind:inputChange="inputChange" bind:clearTap='clearTap' bind:checkIsNull='checkIsNull' bind:getFocus='getFocus'/>
+  </view>
+</view>
+
+<!--按扭-->
+<view class="bottom">
+  <bigButton actMsg="提 交" bindtap="registerUser" />
+</view>

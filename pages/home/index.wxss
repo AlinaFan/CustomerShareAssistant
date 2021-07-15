@@ -1,0 +1,49 @@
+/**顶部*/
+.header{ width: 100vw; height: 440rpx; top:0; left: 0; position: fixed; z-index: 100;}
+.header image{width: 100%; }
+
+/**内容*/
+.container{color: var(--themeColor);  width: 100vw; display: flex; flex-direction: column; z-index: 99; position: relative; top: 460rpx;}
+
+/**订单状态*/
+.crState{height: auto; width: 100vw; margin-bottom: 10rpx; background-color: white; display: flex; flex-direction: row; }
+.iconInfo{margin: 2.5vw 2.5vw;}
+
+/**未完结订单*/
+.unDealCRList{height: auto; width: 100vw; margin-bottom: 100rpx; padding-left: 5vw; background-color: white; display: flex; flex-direction: column; }
+/**标题*/
+.title{padding:20rpx 0 10rpx 0; }
+.titleLabel{font-size: var(--pageTitleFontSize); font-weight: 520; color: black; position: relative; margin-left: 5vw;}
+.titleLabel::before{display: block; width: 16rpx; height: 22rpx; background-color: var(--themeColor); content: ""; position: absolute; margin-top: 1vh;}
+
+/** 列表详情 */
+.content{width: 95vw;}
+.splitters { width: 95vw;  height: 5rpx;  background-color:lightgray;}
+.custInfo{color: black; display: flex; flex-direction: row; margin: 20rpx 0;}
+.custId{flex: 2.4; font-size: var(--nomalFontSize); font-weight: 550;}
+.nameAndPhneNo{flex: 5.1;}
+.custName{font-size: var(--nomalFontSize);font-weight: 550; }
+.custPhoneNo{font-size: var(--smallFontSize); font-style: italic;}
+.custPhoneNo::before{content: "/";}
+.date{flex: 2; font-size: var(--smallFontSize); font-style: italic; margin-top: 0.8vw;}
+.crInfo{width: 95vw; display: flex; flex-direction: row; font-size: var(--nomalFontSize); color: black; margin-top: 10rpx;}
+.left{flex: 2.4; display: flex; flex-direction: column; align-items: center; margin-left: -5vw;}
+.custType{color: white; font-weight: 550; text-align: center;  width: 60rpx; height:60rpx; line-height:60rpx;}
+.autarkCR{ background-color: var(--autarkCRColor); border-radius: 60rpx;}
+.sendOutCR{ background-color: var(--sendoutCRColor); border-radius: 60rpx;}
+.acceptCR{ background-color: var(--acceptCRColor); border-radius: 60rpx;}
+.followInfo{font-size: var(--smallFontSize); color: gray; text-decoration: underline; margin-top: 2vw;}
+.right{flex: 7.1; display: flex; flex-direction: column; margin-left: 5vw;}
+.areaAndPrice{display: inline-flex; justify-content: space-between;}
+.area::before{color: var(--themeColor); content: "面积：";}
+.area::after{content: "m²";}
+.price::before{color: var(--themeColor); content: "预期价格：";}
+.price::after{content: "元";}
+.remark::before{color: var(--themeColor); content: "备注：";}
+.actType{display: flex; flex-direction: row; margin: 20rpx 0 30rpx 0; }
+.custState{color: white; font-size: var(--smallFontSize); text-align: center;  margin-left:3vw; width: 120rpx; height:40rpx; line-height:40rpx;}
+.unAccept{background-color: var(--unAcceptColor); border-radius: 60rpx; }
+.following{background-color: var(--followingColor); border-radius: 60rpx; }
+.actbtn{display: flex; flex-direction: row; }
+.actbtn button{margin-right: 80rpx; width: 200rpx; height: 50rpx; line-height: 50rpx;background-color: var(--themeColor); font-size: var(--nomalFontSize); color: white; border-radius: 10rpx;}
+

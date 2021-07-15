@@ -1,0 +1,81 @@
+<!--顶部-->
+<view class="header">
+  <image src="/images/homeHeader.png" mode="widthFix" />
+</view>
+
+<!--内容-->
+<view class="container">
+  <!--订单状态-->
+  <view class="crState">
+    <view class="iconInfo">
+      <circleShow number="999" unit="人" infoType="总客源数" />
+      <circleShow number="30" unit="人" infoType="当月新增" />
+      <circleShow number="1" unit="单" infoType="当月成交" />
+      <circleShow number="12" unit="单" infoType="待结订单" />
+    </view>
+  </view>
+  <!--未完结订单-->
+  <view class="unDealCRList">
+    <!--标题-->
+    <view class="title">
+      <text class="titleLabel">未完结客源订单</text>
+    </view>
+    <!--内容-->
+    <view class="content" wx:for="{{GetUnDealCRequireList}}" wx:key="CustomerId">
+      <view class="splitters"></view>
+      <!--客源信息-->
+      <view class="custInfo">
+        <view class="custId">{{item.CustomerId}}</view>
+        <view class="nameAndPhneNo">
+          <text class="custName">{{item.CustomerName}} ({{item.HouseType}})</text>
+          <text class="custPhoneNo">{{item.CustomerPhoneNo}}</text>
+        </view>
+        <view class="date">{{item.CreateTime}}</view>
+      </view>
+      <!--客源订单信息-->
+      <view class="crInfo">
+        <view class="left">
+          <view class="custType">
+            <view wx:if="{{item.CustomerType==1}}">
+              <view class="autarkCR">自</view>
+            </view>
+            <view wx:elif="{{item.CustomerType==2}}">
+              <view class="sendOutCR">外</view>
+            </view>
+            <view wx:else="{{item.CustomerType==3}}">
+              <view class="acceptCR">接</view>
+            </view>
+          </view>
+          <view class="followInfo" bindtap="showfollowInfo">跟进详情</view>
+        </view>
+        <view class="right">
+          <view class="areaAndPrice">
+            <text class="area">{{item.Area}}</text>
+            <text class="price">{{item.ExpectedPrice}}</text>
+          </view>
+          <view class="remark">{{item.Remark}}</view>
+        </view>
+      </view>
+      <!--订单状态 按钮-->
+      <view class="actType">
+        <view class="left">
+          <view class="custState">
+            <view wx:if="{{item.CustomerState==1}}">
+              <view class="unAccept">待接单</view>
+            </view>
+            <view wx:if="{{item.CustomerState==2}}">
+              <view class="following">跟进中</view>
+            </view>
+          </view>
+        </view>
+        <view class="right">
+          <view class="actbtn">
+            <button>签约成功</button>
+            <button>终止订单</button>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
