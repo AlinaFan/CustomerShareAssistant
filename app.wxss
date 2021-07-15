@@ -1,0 +1,34 @@
+/**app.wxss**/
+page {
+  --themeColor: #00A99D;
+  --themeColorDark: #282b3f;
+  --autarkCRColor: #0e9796;
+  --sendoutCRColor: #728abe;
+  --acceptCRColor: #e68220;
+  --unAcceptColor: #961321;
+  --followingColor: #27993d;
+  background-color: #eee;
+  --titleFontSize: 58rpx;
+  --modalTitleFontSize: 38rpx;
+  --inputLoginFontSize: 36rpx;
+  --inputFontSize: 32rpx;
+  --tableFontSize:26rpx;
+  --smallFontSize: 24rpx;
+  --nomalFontSize: 30rpx;
+  --bigFontSize: 46rpx;
+  --linkFontSize: 30rpx;
+  --loginBtnFontSize: 38rpx;
+  --pageTitleFontSize: 36rpx;
+  --inputHeight: 100rpx;
+}
+
+.container {
+  padding: 0 26rpx;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}

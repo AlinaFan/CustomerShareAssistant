@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/login/register",
+    "pages/home/index",
+    "pages/custCenter/index",
+    "pages/custCenter/custInfo",
+    "pages/custCenter/dealCRInfo",
+    "pages/custCenter/dealCRInfo_Admin",
+    "pages/staffCenter/index",
+    "pages/unitCenter/index",
+    "pages/personalCenter/index",
+    "pages/logs/logs",
+    "pages/home/followInfo"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#7A7E83",
+    "selectedColor": "#00A99D",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "images/tabBar/Home.png",
+        "selectedIconPath": "images/tabBar/Home-s.png"
+      },
+      {
+        "pagePath": "pages/custCenter/index",
+        "text": "客源中心",
+        "iconPath": "images/tabBar/Customer.png",
+        "selectedIconPath": "images/tabBar/Customer-s.png"
+      },
+      {
+        "pagePath": "pages/staffCenter/index",
+        "text": "员工管理",
+        "iconPath": "images/tabBar/Staff.png",
+        "selectedIconPath": "images/tabBar/Staff-s.png"
+      },
+      {
+        "pagePath": "pages/unitCenter/index",
+        "text": "合作联盟",
+        "iconPath": "images/tabBar/Unit.png",
+        "selectedIconPath": "images/tabBar/Unit-s.png"
+      },
+      {
+        "pagePath": "pages/personalCenter/index",
+        "text": "个人中心",
+        "iconPath": "images/tabBar/User.png",
+        "selectedIconPath": "images/tabBar/User-s.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
