@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "mainPageHeader":"/components/mainPageHeader/mainPageHeader",
+    "squareShow":"/components/squareShow/squareShow",
+    "custTypeIcon":"/components/custTypeIcon/custTypeIcon",
+    "detailInfo":"/components/detailInfo/detailInfo"
+  }
+}

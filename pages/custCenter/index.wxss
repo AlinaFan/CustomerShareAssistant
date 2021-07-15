@@ -1,0 +1,71 @@
+.container{width: 100vw; margin-top: 320rpx; z-index: 99; display: flex; }
+/**搜索框*/
+.search{width: 100%; height:100rpx; display: flex; align-items: center; justify-content: center; }
+.searchInput{width: 65vw; height: 70rpx; line-height: 70rpx; text-align: center; display: flex; align-items: center; background-color: #eee; border: 2rpx solid lightgray; border-radius: 80rpx;}
+.searchLabel{flex: 9; font-size: var(--inputFontSize); color: gray;}
+.searchImg{flex: 1; margin-right: 30rpx; }
+/**客源管理*/
+.custManage{width: 100%; height:100rpx; display: flex; flex-direction: row-reverse; margin-top: -70rpx;}
+.custManageImg{width: 7vw; }
+
+/**订单状态 方形*/
+.crInfo{width: 100vw; height: 200rpx; background-color:white; display: flex; justify-content: center; align-items: center;}
+.square{display: flex; flex-direction: row; justify-content: space-between;}
+
+.cRequireList{width: 100vw; height: auto; background-color: white;margin-top: 20rpx; }
+
+/**标题 全部 自营 外推 接收*/
+.custTypeIcon{width: 100vw; background-color: white; margin-top: 20rpx;}
+.custType{padding: 0 2.5vw; height: 100rpx; line-height: 100rpx; display: flex; flex-direction: row; text-align: center; align-items: center;}
+.custType text{width: 25vw; font-size: var(--pageTitleFontSize); font-weight: 550;border-bottom: 5rpx solid lightgray;}
+.custType text.select{ color: var(--themeColor); border-bottom: 5rpx solid var(--themeColor);}
+
+/**表格*/
+.table {width: 95vw; margin-left: 2.5vw; font-size: var(--tableFontSize); margin-top: 20rpx; margin-bottom: 120rpx;}  
+.tableHeader{padding-left: 13rpx; display: flex; justify-content: left; align-items: center; background-color:var(--themeColor); color: white; height: 60rpx;}
+.tableSource{width: 95vw;background-color: white;}
+.tableData{height: 100rpx; line-height: 100rpx; padding-left: 13rpx; display: flex; flex-direction: row; border-bottom: 1rpx solid lightgray;}
+.custInfo{width: 82vw; display: flex; justify-content: left; align-items: center; }
+.actType{left: 87vw; text-decoration: underline; color: var(--themeColor);z-index: 100; position: absolute;}
+
+/**详情*/
+.detail{width: 95vw; margin-left: 2.5vw;display: flex; flex-direction: row; flex-wrap: wrap;}
+
+/**状态 下拉框*/
+.select_box{z-index: 200;padding-left: 20rpx; position:absolute;left: 72vw; display: flex; flex-direction: column; border: 2rpx solid #eee; background-color: white;}
+.custState{font-size: var(--nomalFontSize); width: 160rpx; height: 90rpx; line-height: 90rpx; border-bottom: 2rpx solid #eee;}
+
+/**操作 弹框*/
+.modal_mask{width: 100vw; height: 100vh; position: fixed;  top: 0;  left: 0;  background:#eee; opacity: 0.2; z-index: 999; background-color:black;  }
+.modal_dialog{width: 100vw; height: 500rpx; overflow: hidden; position: fixed;  bottom:100rpx ; right: 0; z-index: 1000; background-color:white; display: flex; flex-direction: row-reverse;}
+.listBox{display: flex; flex-direction: column;}
+.listBox_select{background-color:var(--themeColor);color: white;}
+/**操作列 下拉菜单*/
+.listBox_actType{width: 100vw; height: 100rpx; line-height:100rpx; font-size: var(--nomalFontSize); text-align: center;}
+
+/**外推订单 下发订单 下拉菜单*/
+.modal_crList{width: 100vw; height: 700rpx; overflow: hidden; position: fixed;  bottom:100rpx ; right: 0; z-index: 1000; background-color:white; }
+/**标题*/
+.listBox_header{width: 100vw; background-color:var(--themeColor);color: white; font-size: var(--nomalFontSize); display: flex; flex-direction: row; text-decoration: none; }
+.listBox_header text{padding:0 30rpx; text-align: left;}
+/**内容*/
+.listBox_content{width: 100vw; display: flex;flex-direction: column; margin-bottom: 160rpx; height: 500rpx;}
+/*一级*/
+.listBox_item{width: 100%;display: flex;flex-direction: row; text-align: left;}
+.listBox_item text{padding:0 30rpx;}
+.listBox_item input{padding:0 30rpx;height: 100rpx; line-height:100rpx; }
+/*联动*/
+.listBox_more{width: 100vw; height: 700rpx; overflow: hidden; position: fixed;  bottom:100rpx ; right: 0; z-index: 1000; background-color:white;  display: flex; flex-direction: row;}
+.listBox_more_content{width: 100%; display: flex;flex-direction: column; margin-bottom: 160rpx; height: 500rpx;}
+.listBox_first{width: 35vw; display: flex;flex-direction: column; text-align: left;}
+.listBox_first text{padding:0 30rpx;}
+.listBox_second{width: 65vw; display: flex;flex-direction: column; text-align: left;}
+.listBox_second input{padding:0 30rpx;height: 100rpx; line-height:100rpx; }
+/**复选框*/
+checkbox{ width: auto; height: auto;font-size: var(--nomalFontSize); }
+checkbox .wx-checkbox-input{width: 30rpx; height: 30rpx; margin:0 30rpx;}
+/**按扭*/
+.listBox_button{width: 100vw; display: flex;position: fixed;bottom: 100rpx;}
+.listBox_button button{height: 100rpx; line-height:100rpx; border-radius: 0;font-size: var(--nomalFontSize);}
+.button_ok{flex: 7; background-color: var(--themeColor); color: white;}
+.button_cancel{flex: 3; background-color: #eee;}

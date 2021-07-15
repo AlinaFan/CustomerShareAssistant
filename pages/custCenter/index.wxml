@@ -1,0 +1,174 @@
+<mainPageHeader />
+
+<view class="container">
+  <!--搜索框-->
+  <view class="search">
+    <view class="searchInput">
+      <text class="searchLabel">搜 索</text>
+      <image class="searchImg" src="/images/other/Search1.png" mode="widthFix" />
+    </view>
+  </view>
+  <!--客源管理-->
+  <view class="custManage">
+    <image class="custManageImg" src="/images/other/CustManage.png" mode="widthFix" />
+  </view>
+  <!--订单状态 方形-->
+  <view class="crInfo">
+    <view class="square">
+      <squareShow number="10001" infoType="总订单数" infoColor="#5285b5" />
+      <squareShow number="5842" infoType="总成交数" infoColor="#e1ac26" />
+      <squareShow number="351" infoType="待结订单" infoColor="#d06e2d" />
+      <squareShow number="120" infoType="当月新增" infoColor="#2aa738" />
+      <squareShow number="12" infoType="订单邮件" infoColor="#940006" />
+    </view>
+  </view>
+
+  <!--客源订单列表-->
+  <view class="cRequireList">
+    <!--标题 全部 自营 外推 接收-->
+    <view class="custTypeIcon">
+      <view class="custType">
+        <block wx:for="{{custTypeList}}" wx:key="CRequireId">
+          <text class="{{custType==item.CustomerType?'select':''}}" bindtap="selectIcon"
+            data-typeid="{{item.CustomerType}}">{{item.CustTypeName}}</text>
+        </block>
+      </view>
+    </view>
+    <!--表格-->
+    <view class="table">
+      <!--表头-->
+      <view class="tableHeader">
+        <block class="th" wx:for="{{tableHeader}}" wx:for-item="th_item" wx:key="prop" wx:for-index="key">
+          <view style="flex:1.3">{{th_item.CRequireId}}</view>
+          <view style="flex:1">{{th_item.CustomerName}}</view>
+          <view style="flex:0.9">{{th_item.HouseType}}</view>
+          <view style="flex:0.9">{{th_item.Area}}</view>
+          <view style="flex:1">{{th_item.ExpectedPrice}}</view>
+          <view style="flex:1" bindtap="showCustState" data-index="{{key}}">{{th_item.CustomerState}}</view>
+          <view style="flex:0.8">操作</view>
+        </block>
+      </view>
+      <!--客源状态 下拉框-->
+      <view class="select_box">
+        <block wx:for-items="{{custStateList}}" wx:for-item="cs_item" wx:key="CustState" wx:if="{{c_select}}">
+          <view class="custState" bindtap="myCustState" data-index="{{key}}">{{cs_item.CustStateName}}</view>
+        </block>
+      </view>
+      <!--内容-->
+      <view class="tableSource">
+        <block wx:for-items="{{GetCustRequirdList}}" wx:key="CRequireId" wx:for-item="item" wx:for-index="key">
+          <view class="tableData">
+            <view class="custInfo" bindtap="showDetailInfo" data-index="{{key}}" data-id="{{item.CRequireId}}">
+              <view style="flex:1.3">{{item.CRequireId}}</view>
+              <view style="flex:1">{{item.CustomerName}}</view>
+              <view style="flex:0.9">{{item.HouseType}}</view>
+              <view style="flex:0.9">{{item.Area}}</view>
+              <view style="flex:1">{{item.ExpectedPrice}}</view>
+              <view style="flex:1">
+                <view wx:if="{{item.CustomerState==1}}">待接单</view>
+                <view wx:elif="{{item.CustomerState==2}}">跟进中</view>
+                <view wx:elif="{{item.CustomerState==3}}">成交</view>
+                <view wx:else="{{item.CustomerState==4}}">终止</view>
+              </view>
+            </view>
+            <!--操作列-->
+            <view class="tb_actType">
+              <text class="actType" bindtap="showActType" data-index="{{key}}" data-id="{{item.CRequireId}}">操作</text>
+              <view class="modal_mask" bindtap="hideModal" wx:if="{{showModal}}" catchtouchmove="preventTouchMove" />
+              <view class="modal_dialog" wx:if="{{showModal}}">
+                <!--操作列 下拉菜单-->
+                <view class="listBox">
+                  <block wx:for="{{actTypeList}}" wx:for-item="at_item" wx:key="name">
+                    <view class="listBox_actType" style="background-color:{{index % 2 == 0?'#fff':'#eee'}};"
+                      data-name="{{at_item.name}}" bindtap="myActType">
+                      <view class="{{actType==at_item.name?'listBox_select':''}}">
+                        <text>{{at_item.value}}</text>
+                      </view>
+                    </view>
+                  </block>
+                </view>
+              </view>
+              <!--外推订单-->
+              <view class="modal_crList" wx:if="{{actType=='sendout'}}">
+                <view class="listBox">
+                  <view class="listBox_header">
+                    <checkbox style="flex:7">合作联盟</checkbox>
+                    <text style="flex:3">比例</text>
+                  </view>
+                  <scroll-view class="listBox_content" scroll-y="true" scroll-x="false" enable-flex="true">
+                    <block wx:for="{{GetUnitNameList}}" wx:for-item="unit_item" wx:key="uuId">
+                      <view class="listBox_item" style="background-color:{{index % 2 == 0?'#fff':'#eee'}}">
+                        <checkbox style="flex:7">{{unit_item.uuName}}</checkbox>
+                        <input style="flex:3" type="number" value="{{unit_item.percentage}}" />
+                      </view>
+                    </block>
+                  </scroll-view>
+                  <view class="listBox_button">
+                    <button class="button_ok">确定</button>
+                    <button class="button_cancel" bindtap="onCancel">取消</button>
+                  </view>
+                </view>
+              </view>
+              <!--下发订单-->
+              <view class="listBox_more" wx:if="{{actType=='assign'}}">
+                <!--一级-->
+                <view class="listBox_first">
+                  <view class="listBox_header">
+                    <text>部门</text>
+                  </view>
+                  <scroll-view class="listBox_more_content" scroll-y="true" scroll-x="false" enable-flex="true">
+                    <block wx:for="{{GetDepartmentList}}" wx:for-item="dept_item" wx:key="deptId">
+                      <view class="listBox_item" bindtap="getAUNameList" data-index="{{index}}"
+                        style="background-color:{{index % 2 == 0?'#fff':'#eee'}}" data-id="{{dept_item.deptId}}">
+                        <text>{{dept_item.deptName}}</text>
+                      </view>
+                    </block>
+                  </scroll-view>
+                </view>
+                <!--二级-->
+                <view class="listBox_second">
+                  <view class="listBox_header">
+                    <checkbox style="width:35vw">员工</checkbox>
+                    <text style="width:30vw">比例</text>
+                  </view>
+                  <scroll-view class="listBox_more_content" scroll-y="true" scroll-x="false" enable-flex="true">
+                    <view class="listBox_item" hidden="{{dept_item[index].auHidden}}">
+                      <block wx:for="{{dept_item[index].GetAgentUserNameList}}" wx:key="deptId">
+                        <checkbox>{{dept_item.auName}}</checkbox>
+                        <input type="number" value="{{dept_item.percentage}}" />
+                      </block>
+                    </view>
+                  </scroll-view>
+                </view>
+                <view class="listBox_button">
+                  <button class="button_ok">确定</button>
+                  <button class="button_cancel" bindtap="onCancel">取消</button>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!--客源订单详情-->
+          <view hidden="{{!item.hidden}}">
+            <block wx:for-items="{{CustRequireDetailList}}" wx:key="CRequireId">
+              <view class="detail">
+                <detailInfo beforeText="性别" mainText="{{item.CustomerSex}}" />
+                <detailInfo beforeText="电话" mainText="{{item.CustomerPhoneNo}}" />
+                <detailInfo beforeText="类型" wx:if="{{item.CustomerType==1}}" mainText="自营" />
+                <detailInfo beforeText="类型" wx:if="{{item.CustomerType==2}}" mainText="外推" />
+                <detailInfo beforeText="类型" wx:if="{{item.CustomerType==3}}" mainText="接收" />
+                <detailInfo beforeText="创建人" mainText="{{item.CRCreatorName}}" />
+                <detailInfo beforeText="创建时间" mainText="{{item.CRCreateTime}}" />
+                <detailInfo beforeText="备注" mainText="{{item.Remark}}" />
+                <detailInfo wx:if="{{item.DealPersonName!=''}}" beforeText="成交人" mainText="{{item.DealPersonName}}" />
+                <detailInfo wx:if="{{item.DealPersonName!=''}}" beforeText="佣金比例" mainText="{{item.Percentage}}" />
+                <detailInfo wx:if="{{item.DealPersonName!=''}}" beforeText="签约详情"
+                  mainText="{{item.DealBuilding}}{{item.DealRoom}}-{{item.DealPrice}}元" />
+              </view>
+            </block>
+          </view>
+        </block>
+      </view>
+
+    </view>
+  </view>
+</view>
