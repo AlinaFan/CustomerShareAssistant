@@ -1,0 +1,7 @@
+<view class="custTypeIcon">
+  <view class="custType">
+   <block wx:for="{{custTypeList}}" wx:key="CustomerId">
+    <text class="{{selectType==item.CustomerType?'select':''}}" bindtap="selectIcon" data-typeid="{{item.CustomerType}}">{{item.CustTypeName}}</text>  
+   </block>    
+  </view>
+</view>

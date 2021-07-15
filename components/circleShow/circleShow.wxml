@@ -1,0 +1,7 @@
+<view class="circle">
+  <view>
+    <text class="number">{{number}}</text>
+    <text class="infos">{{unit}}</text>
+  </view>
+  <view class="infos">{{infoType}}</view>
+</view>
